@@ -1,7 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
 import { Text, StyleSheet, View, SafeAreaView, Image, TouchableOpacity } from "react-native";
 
-const AboutTheAppScreen = params => {
+const AboutTheAppScreen = () => {
+  const navigation = useNavigation();
   const [ImageSource, setImageSource] = useState();
   const [text1, setText1] = useState("");
   const [text2, setText2] = useState("");
@@ -19,7 +21,9 @@ const AboutTheAppScreen = params => {
         <Text style={styles.text}>{text1}</Text>
         <Text style={styles.text}>{text2}</Text>
       </View>
-      <TouchableOpacity style={styles.buttonContainer}>
+      <TouchableOpacity style={styles.buttonContainer} onPress={() => {
+      navigation.navigate("subscriptionDetails");
+    }}>
         <Text style={styles.buttonText}>I Agree</Text>
       </TouchableOpacity>
     </SafeAreaView>;

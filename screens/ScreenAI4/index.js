@@ -1,12 +1,17 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import React from 'react';
 import { View, Text, Image, StyleSheet, SafeAreaView } from 'react-native';
 
 const SplashScreen = () => {
+  const navigation = useNavigation();
   return <SafeAreaView style={styles.container}>
       <View style={styles.logoContainer}>
-        <Image source={{
-        uri: 'https://tinyurl.com/42evm3m3'
-      }} style={styles.logo} />
+        <Pressable onPress={() => {
+        navigation.navigate("ScreenAI5");
+      }}><Image source={{
+          uri: 'https://tinyurl.com/42evm3m3'
+        }} style={styles.logo} /></Pressable>
         <Text style={styles.title}>Welcome to My App</Text>
       </View>
     </SafeAreaView>;

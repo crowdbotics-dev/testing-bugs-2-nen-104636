@@ -1,15 +1,19 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const LoginScreen = () => {
+  const navigation = useNavigation();
   return <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Login</Text>
       <View style={styles.inputContainer}>
         <TextInput style={styles.input} placeholder="Username" placeholderTextColor="#999" />
         <TextInput style={styles.input} placeholder="Password" placeholderTextColor="#999" secureTextEntry />
       </View>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => {
+      navigation.navigate("aboutTheApp");
+    }}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.forgotPasswordButton}>
